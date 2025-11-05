@@ -1,17 +1,21 @@
 from flask import Flask, request, jsonify
 import pymysql
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
 
 # Database configuration
+
 db_config = {
-    "host": "",
-    "user": "admin",
-    "password": "",
-    "database": "registrationdb"  # ✅ your DB name
+    "host": os.getenv("DB_HOST", ""),
+    "user": os.getenv("DB_USER", "admin"),
+    "password": os.getenv("DB_PASSWORD", ""),
+    "database": os.getenv("DB_NAME", "registrationdb")
 }
+
+
 
 def get_db_connection():
     return pymysql.connect(

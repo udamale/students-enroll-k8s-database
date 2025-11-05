@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: frontend-container
-          image: your-dockerhub-username/frontend-app:latest
+          image: 656701891231.dkr.ecr.ap-south-1.amazonaws.com/fronted:v1
           ports:
             - containerPort: 80
